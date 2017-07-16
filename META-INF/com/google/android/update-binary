@@ -159,6 +159,14 @@ $POSTFSDATA && cp -af $INSTALLER/common/post-fs-data.sh $MODPATH/post-fs-data.sh
 # service mode scripts
 $LATESTARTSERVICE && cp -af $INSTALLER/common/service.sh $MODPATH/service.sh
 
+# Migrating fonts.xml
+ui_print "- Migrating fonts.xml"
+if [ -f "/system/etc/fonts.xml" ]; then
+  mkdir -p $MODPATH/system/etc/
+  cp -af /system/etc/fonts.xml $MODPATH/system/etc/fonts.xml
+  sed -i 's@<font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>@<font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>@g' $MODPATH/system/etc/fonts.xml
+fi
+
 ui_print "- Setting permissions"
 set_permissions
 

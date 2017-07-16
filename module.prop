@@ -1,7 +1,7 @@
-id=template
-name=Template Module
-version=v1
+id=font-koruri-n
+name=Koruri Font
+version=v01
 versionCode=1
-author=topjohnwu
-description=A short description
+author=lindwurm,AndroPlus
+description=Koruri font patch for Japanese users.
 template=4
