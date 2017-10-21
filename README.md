@@ -12,3 +12,11 @@ Only tested on Android 7.x Nougat ROM.
 
 * Author of Koruri - lindwurm (https://github.com/lindwurm)
 * Any issue or pull request is welcome at [GitHub](https://github.com/Magisk-Modules-Repo/magisk-module-koruri-font).
+
+## Change log
+
+#### v02
+* Changed template to 1400
+
+#### v01
+* Initial Release
