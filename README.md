@@ -15,6 +15,9 @@ Only tested on Android 7.x Nougat ROM.
 
 ## Change log
 
+#### v03
+* Fixed broken colon in lockscreen and ambient display clock
+
 #### v02
 * Changed template to 1400
 
