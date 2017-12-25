@@ -4,4 +4,4 @@ version=v03
 versionCode=3
 author=lindwurm,AndroPlus
 description=Koruri font patch for Japanese users.
-template=1410
+minMagisk=1500
