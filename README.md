@@ -15,6 +15,9 @@ Only tested on Android 7.x Nougat ROM.
 
 ## Change log
 
+#### v05
+* Updated template to 1700
+
 #### v04
 * Updated template to 1500
 
