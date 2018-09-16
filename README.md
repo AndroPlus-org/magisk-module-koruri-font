@@ -15,6 +15,9 @@ Only tested on Android 7.x Nougat ROM.
 
 ## Change log
 
+#### v06
+* Updated Koruri to 20180915
+
 #### v05
 * Updated template to 1700
 
