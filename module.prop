@@ -1,7 +1,6 @@
 id=font-koruri-n
 name=Koruri Font
-version=v06
-versionCode=6
+version=v07
+versionCode=7
 author=lindwurm,AndroPlus
-description=Koruri font patch for Japanese users.
-minMagisk=1700
+description=Koruri font patch for Japanese users. Koruri is open source Japanese font.
