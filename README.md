@@ -2,7 +2,7 @@
 
 Koruri font patch for Japanese users.
 This also replaces Roboto to Open Sans because Koruri is mixed font of Open Sans and M+ FONTS.
-Tested on Android 9.0 ROM.
+Tested on Android 9.0 and 10.
 
 #### NOTICE
 
@@ -14,6 +14,9 @@ Tested on Android 9.0 ROM.
 * Any issue or pull request is welcome at [GitHub](https://github.com/Magisk-Modules-Repo/magisk-module-koruri-font).
 
 ## Change log
+
+#### v08
+* Updated template to "Magisk Module Installer"
 
 #### v07
 * Updated template to New template
