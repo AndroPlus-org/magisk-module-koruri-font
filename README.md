@@ -11,7 +11,7 @@ Tested on Android 9.0 and 10.
 #### Credit & Support
 
 * Author of Koruri - lindwurm (https://github.com/lindwurm)
-* Any issue or pull request is welcome at [GitHub](https://github.com/Magisk-Modules-Repo/magisk-module-koruri-font).
+* Any issue or pull request is welcome at [GitHub](https://github.com/AndroPlus-org/magisk-module-koruri-font).
 
 ## Change log
 
