@@ -609,7 +609,11 @@
         <font weight="400" style="normal">MYingHeiHKForOnePlus-W4.ttf</font>
     </family>
     <family lang="ja">
-        <font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>
+        <font weight="300" style="normal">Koruri-Light.ttf</font>
+        <font weight="400" style="normal">Koruri-Regular.ttf</font>
+        <font weight="600" style="normal">Koruri-Semibold.ttf</font>
+        <font weight="700" style="normal">Koruri-Bold.ttf</font>
+        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>
     </family>
     <family lang="ko">
         <font weight="400" style="normal" index="1">NotoSansCJK-Regular.ttc</font>
