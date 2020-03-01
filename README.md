@@ -15,6 +15,9 @@ Tested on Android 9.0 and 10.
 
 ## Change log
 
+#### v09
+* Fixed OnePlus Slate overwrite
+
 #### v08
 * Updated template to "Magisk Module Installer"
 
