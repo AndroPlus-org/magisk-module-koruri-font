@@ -15,6 +15,9 @@ Tested on Android 9.0 and 10.
 
 ## Change log
 
+#### v10
+* Fixed fancy colon on Rakuten Mini C330
+
 #### v09
 * Fixed OnePlus Slate overwrite
 
