@@ -14,6 +14,10 @@ cp $MAGISKTMP/mirror/system/etc/fonts.xml $MODDIR/system/etc
 #Change fonts.xml file
 sed -i 's@<font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>@<font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/fonts.xml
 
+#Goodbye, SomcUDGothic
+sed -i 's@SomcUDGothic-Light.ttf@null.ttf@g' $MODDIR/system/etc/fonts.xml
+sed -i 's@SomcUDGothic-Regular.ttf@null.ttf@g' $MODDIR/system/etc/fonts.xml
+
 #Copy fonts_slate.xml for OnePlus
 opslate=$MAGISKTMP/mirror/system/etc/fonts_slate.xml
 if [ -e $opslate ]; then
