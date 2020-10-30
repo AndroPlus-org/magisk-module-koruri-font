@@ -2,7 +2,7 @@
 
 Koruri font patch for Japanese users.
 This also replaces Roboto to Open Sans because Koruri is mixed font of Open Sans and M+ FONTS.
-Tested on Android 9.0 and 10.
+Tested on OnePlus 8T (Android 11).
 
 #### NOTICE
 
@@ -14,6 +14,13 @@ Tested on Android 9.0 and 10.
 * Any issue or pull request is welcome at [GitHub](https://github.com/AndroPlus-org/magisk-module-koruri-font).
 
 ## Change log
+
+#### v12
+* Added support for new Magisk Module Template
+* Added support for OnePlus OxygenOS 11
+
+#### v11
+* Added support for Xperia
 
 #### v10
 * Fixed fancy colon on Rakuten Mini C330
