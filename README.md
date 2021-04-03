@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11).
 
 ## Change log
 
+#### v13
+* Added support for OnePlus OxygenOS 11 (Added U+A789)
+
 #### v12
 * Added support for new Magisk Module Template
 * Added support for OnePlus OxygenOS 11
