@@ -21,6 +21,7 @@ sed -i 's@SomcUDGothic-Regular.ttf@null.ttf@g' $MODDIR/system/etc/fonts.xml
 
 #Goodbye, OnePlus Font
 sed -i 's@OpFont-@Roboto-@g' $MODDIR/system/etc/fonts.xml
+sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 
 #Copy fonts_slate.xml for OnePlus
 opslate=fonts_slate.xml
@@ -48,4 +49,6 @@ if [ -e /system/etc/$oos11 ]; then
 	sed -i 's@<font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>@<font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/$oos11
 
 	sed -i 's@<font weight="400" style="normal" index="0" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>@<font weight="300" style="normal" fallbackFor="serif">Koruri-Light.ttf</font>\n        <font weight="400" style="normal" fallbackFor="serif">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal" fallbackFor="serif">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal" fallbackFor="serif">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal" fallbackFor="serif">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/$oos11
+
+	sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/$oos11
 fi
