@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11).
 
 ## Change log
 
+#### v14
+* Update Koruri to 20210720
+
 #### v13
 * Added support for OnePlus OxygenOS 11 (Added U+A789)
 
