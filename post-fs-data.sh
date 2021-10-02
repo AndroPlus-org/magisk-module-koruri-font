@@ -10,10 +10,19 @@ MODDIR=${0%/*}
 #Copy original fonts.xml to the MODDIR to overwrite dummy file
 cp /system/etc/fonts.xml $MODDIR/system/etc
 
-#Change fonts.xml file
-sed -i 's@<font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>@<font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/fonts.xml
+#Function to remove original ja
+remove_ja() {
+  sed -i -e '/<family lang="ja"/,/<\/family>/d' $1
+}
 
-sed -i 's@<font weight="400" style="normal" index="0" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>@<font weight="300" style="normal" fallbackFor="serif">Koruri-Light.ttf</font>\n        <font weight="400" style="normal" fallbackFor="serif">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal" fallbackFor="serif">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal" fallbackFor="serif">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal" fallbackFor="serif">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/fonts.xml
+#Function to add ja above zh-Hans
+add_ja() {
+  sed -i 's@<family lang="zh-Hans">@<family lang="ja">\n        <font weight="100" style="normal">Koruri-Thin.ttf</font>\n        <font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>\n        <font weight="100" style="normal" fallbackFor="serif">Koruri-Thin.ttf</font>\n        <font weight="300" style="normal" fallbackFor="serif">Koruri-Light.ttf</font>\n        <font weight="400" style="normal" fallbackFor="serif">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal" fallbackFor="serif">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal" fallbackFor="serif">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal" fallbackFor="serif">Koruri-Extrabold.ttf</font>\n    </family>\n    <family lang="zh-Hans">@g' $1
+}
+
+#Change fonts.xml file
+remove_ja $MODDIR/system/etc/fonts.xml
+add_ja $MODDIR/system/etc/fonts.xml
 
 #Goodbye, SomcUDGothic
 sed -i 's@SomcUDGothic-Light.ttf@null.ttf@g' $MODDIR/system/etc/fonts.xml
@@ -29,7 +38,8 @@ if [ -e /system/etc/$opslate ]; then
     cp /system/etc/$opslate $MODDIR/system/etc
 	
 	#Change fonts_slate.xml file
-	sed -i 's@<font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>@<font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/$opslate
+	remove_ja $MODDIR/system/etc/$opslate
+	add_ja $MODDIR/system/etc/$opslate
 
 	sed -i 's@SlateForOnePlus-Thin.ttf@Koruri-Light.ttf@g' $MODDIR/system/etc/$opslate
 	sed -i 's@SlateForOnePlus-Light.ttf@Koruri-Light.ttf@g' $MODDIR/system/etc/$opslate
@@ -46,9 +56,8 @@ if [ -e /system/etc/$oos11 ]; then
     cp /system/etc/$oos11 $MODDIR/system/etc
 	
 	#Change fonts_slate.xml file
-	sed -i 's@<font weight="400" style="normal" index="0">NotoSansCJK-Regular.ttc</font>@<font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/$oos11
-
-	sed -i 's@<font weight="400" style="normal" index="0" fallbackFor="serif">NotoSerifCJK-Regular.ttc</font>@<font weight="300" style="normal" fallbackFor="serif">Koruri-Light.ttf</font>\n        <font weight="400" style="normal" fallbackFor="serif">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal" fallbackFor="serif">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal" fallbackFor="serif">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal" fallbackFor="serif">Koruri-Extrabold.ttf</font>@g' $MODDIR/system/etc/$oos11
+	remove_ja $MODDIR/system/etc/$oos11
+	add_ja $MODDIR/system/etc/$oos11
 
 	sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/$oos11
 fi
