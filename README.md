@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11).
 
 ## Change log
 
+#### v15
+* Change the way to replace font to fix the issue where some ROMs would give priority to Chinese
+
 #### v14
 * Update Koruri to 20210720
 
