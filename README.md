@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11).
 
 ## Change log
 
+#### v17
+* Fix Roboto replacing on Android 12
+
 #### v16
 * Add Android 12 support
 
