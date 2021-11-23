@@ -25,9 +25,20 @@ add_ja() {
 	fi
 }
 
+#Function to replace Roboto font
+replace_roboto() {
+  if [ $API -ge 31 ] ; then
+		#Android 12 and later
+		sed -i 's@style="normal">Roboto-Regular.ttf@style="normal">OpenSans-VariableFont.ttf@g' $1
+		sed -i 's@style="italic">Roboto-Regular.ttf@style="italic">OpenSans-Italic-VariableFont.ttf@g' $1
+		sed -i 's@RobotoStatic-Regular.ttf@Roboto-Regular.ttf@g' $1
+	fi
+}
+
 #Change fonts.xml file
 remove_ja $MODDIR/system/etc/fonts.xml
 add_ja $MODDIR/system/etc/fonts.xml
+replace_roboto $MODDIR/system/etc/fonts.xml
 
 #Goodbye, SomcUDGothic
 sed -i 's@SomcUDGothic-Light.ttf@null.ttf@g' $MODDIR/system/etc/fonts.xml
