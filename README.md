@@ -2,7 +2,7 @@
 
 Koruri font patch for Japanese users.
 This also replaces Roboto to Open Sans because Koruri is mixed font of Open Sans and M+ FONTS.
-Tested on OnePlus 8T (Android 11).
+Tested on OnePlus 8T (Android 11) / Google Pixel 6 Pro (Android 12).
 
 #### NOTICE
 
