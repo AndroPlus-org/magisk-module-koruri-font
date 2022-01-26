@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11) / Google Pixel 6 Pro (Android 12).
 
 ## Change log
 
+#### v18
+* Add support for updating from Magisk app
+
 #### v17
 * Fix Roboto replacing on Android 12
 
