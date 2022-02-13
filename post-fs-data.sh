@@ -49,6 +49,7 @@ sed -i 's@OpFont-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 
 #Goodbye, Xiaomi Font
+/system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- # MIUI Edit Start -->.*<!-- # MIUI Edit END -->@<family name="sans-serif">@' $MODDIR/system/etc/fonts.xml
 sed -i 's@MiSansVF.ttf@Roboto-Regular.ttf@g' $MODDIR/system/etc/fonts.xml
 
 #Copy fonts_slate.xml for OnePlus
