@@ -48,6 +48,10 @@ sed -i 's@SomcUDGothic-Regular.ttf@null.ttf@g' $MODDIR/system/etc/fonts.xml
 sed -i 's@OpFont-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 
+#Goodbye, OPLUS Font
+sed -i 's@SysFont-Regular@Roboto-Regular@g' $MODDIR/system/etc/fonts.xml
+sed -i 's@SysSans-En-Regular@Roboto-Regular@g' $MODDIR/system/etc/fonts.xml
+
 #Goodbye, Xiaomi Font
 /system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- # MIUI Edit Start -->.*<!-- # MIUI Edit END -->@<family name="sans-serif">@' $MODDIR/system/etc/fonts.xml
 sed -i 's@MiSansVF.ttf@Roboto-Regular.ttf@g' $MODDIR/system/etc/fonts.xml
@@ -80,4 +84,16 @@ if [ -e /system/etc/$oos11 ]; then
 	add_ja $MODDIR/system/etc/$oos11
 
 	sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/$oos11
+fi
+
+#Copy fonts_base.xml for OnePlus OxygenOS 12+
+oos12=fonts_base.xml
+if [ -e /system/system_ext/etc/$oos12 ]; then
+    cp /system/system_ext/etc/$oos12 $MODDIR/system/system_ext/etc
+	
+	#Change fonts_slate.xml file
+	remove_ja $MODDIR/system/system_ext/etc/$oos12
+	add_ja $MODDIR/system/system_ext/etc/$oos12
+
+	sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/system_ext/etc/$oos12
 fi
