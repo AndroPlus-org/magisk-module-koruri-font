@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11) / Google Pixel 6 Pro (Android 12).
 
 ## Change log
 
+#### v20
+* Force replace MiSansVF
+
 #### v19
 * Replace OPLUS fonts
 * Add different way to replace Xiaomi MiSansVF font
