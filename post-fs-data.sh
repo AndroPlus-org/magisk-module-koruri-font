@@ -7,6 +7,8 @@
 MODDIR=${0%/*}
 # This script will be executed in post-fs-data mode
 
+APILEVEL=$(getprop ro.build.version.sdk)
+
 #Copy original fonts.xml to the MODDIR to overwrite dummy file
 cp /system/etc/fonts.xml $MODDIR/system/etc
 
@@ -17,7 +19,7 @@ remove_ja() {
 
 #Function to add ja above zh-Hans
 add_ja() {
-  if [ $API -ge 31 ] ; then
+  if [ $APILEVEL -ge 31 ] ; then
 		#Android 12 and later
 		sed -i 's@<family lang="zh-Hans">@<family lang="ja">\n        <font weight="100" style="normal" postScriptName="NotoSansCJKjp-Regular">Koruri-Thin.ttf</font>\n        <font weight="300" style="normal" postScriptName="NotoSansCJKjp-Regular">Koruri-Light.ttf</font>\n        <font weight="400" style="normal" postScriptName="NotoSansCJKjp-Regular">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal" postScriptName="NotoSansCJKjp-Regular">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal" postScriptName="NotoSansCJKjp-Regular">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal" postScriptName="NotoSansCJKjp-Regular">Koruri-Extrabold.ttf</font>\n        <font weight="100" style="normal" postScriptName="NotoSansCJKjp-Regular" fallbackFor="serif">Koruri-Thin.ttf</font>\n        <font weight="300" style="normal" postScriptName="NotoSansCJKjp-Regular" fallbackFor="serif">Koruri-Light.ttf</font>\n        <font weight="400" style="normal" postScriptName="NotoSansCJKjp-Regular" fallbackFor="serif">Koruri-Regular.ttf</font>\n        <font weight="600" style="normal" postScriptName="NotoSansCJKjp-Regular" fallbackFor="serif">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal" postScriptName="NotoSansCJKjp-Regular" fallbackFor="serif">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal" postScriptName="NotoSansCJKjp-Regular" fallbackFor="serif">Koruri-Extrabold.ttf</font>\n    </family>\n    <family lang="zh-Hans">@g' $1
 	else
