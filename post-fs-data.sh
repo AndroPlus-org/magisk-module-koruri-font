@@ -10,6 +10,7 @@ MODDIR=${0%/*}
 APILEVEL=$(getprop ro.build.version.sdk)
 
 #Copy original fonts.xml to the MODDIR to overwrite dummy file
+mkdir $MODDIR/system/etc
 cp /system/etc/fonts.xml $MODDIR/system/etc
 
 #Function to remove original ja
