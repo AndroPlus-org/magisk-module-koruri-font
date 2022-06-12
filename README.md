@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11) / Google Pixel 6 Pro (Android 12).
 
 ## Change log
 
+#### v21
+* Replace vivo font
+
 #### v20
 * Force replace MiSansVF
 
