@@ -15,6 +15,9 @@ Tested on OnePlus 8T (Android 11) / Google Pixel 6 Pro (Android 12).
 
 ## Change log
 
+#### v22
+* Support MIUI 13
+
 #### v21
 * Replace vivo font
 
