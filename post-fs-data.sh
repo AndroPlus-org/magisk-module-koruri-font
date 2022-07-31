@@ -34,7 +34,6 @@ replace_roboto() {
 		#Android 12 and later
 		sed -i 's@style="normal">Roboto-Regular.ttf@style="normal">OpenSans-VariableFont.ttf@g' $1
 		sed -i 's@style="italic">Roboto-Regular.ttf@style="italic">OpenSans-Italic-VariableFont.ttf@g' $1
-		sed -i 's@RobotoStatic-Regular.ttf@Roboto-Regular.ttf@g' $1
 	fi
 }
 
@@ -52,42 +51,44 @@ sed -i 's@OpFont-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 
 #Goodbye, OPLUS Font
-if [ -e /system/fonts/SysFont-Regular.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/SysFont-Regular.ttf
+if [ -f /system/fonts/SysFont-Regular.ttf ]; then
+	sed -i 's@<family name="sans-serif">@<family name="sans-serif2">@g' $MODDIR/system/etc/fonts.xml
+	sed -i 's@<family >@<family name="sans-serif">@g' $MODDIR/system/etc/fonts.xml
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/SysFont-Regular.ttf
 fi
-if [ -e /system/fonts/SysSans-En-Regular.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/SysSans-En-Regular.ttf
+if [ -f /system/fonts/SysSans-En-Regular.ttf ]; then
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/SysSans-En-Regular.ttf
 fi
 
 
 #Goodbye, Xiaomi Font
 /system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- # MIUI Edit Start -->.*<!-- # MIUI Edit END -->@<family name="sans-serif">@' $MODDIR/system/etc/fonts.xml
 if [ -e /system/fonts/MiSansVF.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/MiSansVF.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/MiSansVF.ttf
 fi
 #For MIUI 13+
 if [ -e /system/fonts/MiSansVF_Overlay.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/MiSansVF_Overlay.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/MiSansVF_Overlay.ttf
 fi
 
 #Goodbye, vivo Font
 if [ -e /system/fonts/VivoFont.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/VivoFont.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/VivoFont.ttf
 fi
 if [ -e /system/fonts/DroidSansFallbackBBK.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackBBK.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackBBK.ttf
 fi
 if [ -e /system/fonts/HYQiHei-50.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/HYQiHei-50.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/HYQiHei-50.ttf
 fi
 if [ -e /system/fonts/DroidSansFallbackBBK.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackBBK.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackBBK.ttf
 fi
 if [ -e /system/fonts/DroidSansFallbackMonster.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackMonster.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackMonster.ttf
 fi
 if [ -e /system/fonts/DroidSansFallbackZW.ttf ]; then
-	cp $MODDIR/system/fonts/Koruri-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackZW.ttf
+	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/DroidSansFallbackZW.ttf
 fi
 
 #Copy fonts_slate.xml for OnePlus
