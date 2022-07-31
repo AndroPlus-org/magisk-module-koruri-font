@@ -52,14 +52,13 @@ sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 
 #Goodbye, OPLUS Font
 if [ -f /system/fonts/SysFont-Regular.ttf ]; then
-	sed -i 's@<family name="sans-serif">@<family name="sans-serif2">@g' $MODDIR/system/etc/fonts.xml
-	sed -i 's@<family >@<family name="sans-serif">@g' $MODDIR/system/etc/fonts.xml
+	/system/bin/sed -i -z -e 's|<family name="sans-serif".*<family >|<!-- REPLACE -->\n    <family >|g' $MODDIR/system/etc/fonts.xml
+	sed -i 's@<!-- REPLACE -->@<family name="sans-serif">\n        <font weight="100" style="normal">Koruri-Thin.ttf</font>\n        <font weight="200" style="normal">Koruri-Light.ttf</font>\n        <font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="500" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>\n        <font weight="900" style="normal">Koruri-Extrabold.ttf</font>\n    </family>@g' $MODDIR/system/etc/fonts.xml
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/SysFont-Regular.ttf
 fi
 if [ -f /system/fonts/SysSans-En-Regular.ttf ]; then
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/SysSans-En-Regular.ttf
 fi
-
 
 #Goodbye, Xiaomi Font
 /system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- # MIUI Edit Start -->.*<!-- # MIUI Edit END -->@<family name="sans-serif">@' $MODDIR/system/etc/fonts.xml
