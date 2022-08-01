@@ -10,7 +10,7 @@ MODDIR=${0%/*}
 APILEVEL=$(getprop ro.build.version.sdk)
 
 #Copy original fonts.xml to the MODDIR to overwrite dummy file
-mkdir $MODDIR/system/etc
+mkdir -p $MODDIR/system/etc $MODDIR/system/system_ext/etc $MODDIR/system/product/etc
 cp /system/etc/fonts.xml $MODDIR/system/etc
 
 #Function to remove original ja
@@ -52,11 +52,15 @@ sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/etc/fonts.xml
 
 #Goodbye, OPLUS Font
 if [ -f /system/fonts/SysFont-Regular.ttf ]; then
-	/system/bin/sed -i -z -e 's|<family name="sans-serif".*<family >|<!-- REPLACE -->\n    <family >|g' $MODDIR/system/etc/fonts.xml
-	sed -i 's@<!-- REPLACE -->@<family name="sans-serif">\n        <font weight="100" style="normal">Koruri-Thin.ttf</font>\n        <font weight="200" style="normal">Koruri-Light.ttf</font>\n        <font weight="300" style="normal">Koruri-Light.ttf</font>\n        <font weight="400" style="normal">Koruri-Regular.ttf</font>\n        <font weight="500" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="600" style="normal">Koruri-Semibold.ttf</font>\n        <font weight="700" style="normal">Koruri-Bold.ttf</font>\n        <font weight="800" style="normal">Koruri-Extrabold.ttf</font>\n        <font weight="900" style="normal">Koruri-Extrabold.ttf</font>\n    </family>@g' $MODDIR/system/etc/fonts.xml
+	sed -i 's@style="normal">SysFont-Regular.ttf@style="normal">OpenSans-VariableFont.ttf@g' $MODDIR/system/etc/fonts.xml
+	sed -i 's@style="italic">SysFont-Regular.ttf@style="italic">OpenSans-Italic-VariableFont.ttf@g' $MODDIR/system/etc/fonts.xml
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/SysFont-Regular.ttf
 fi
+if [ -f /system/fonts/SysFont-Static-Regular.ttf ]; then
+	cp $MODDIR/system/fonts/RobotoStatic-Regular.ttf $MODDIR/system/fonts/SysFont-Static-Regular.ttf
+fi
 if [ -f /system/fonts/SysSans-En-Regular.ttf ]; then
+	sed -i 's@SysSans-En-Regular@Roboto-Regular@g' $MODDIR/system/etc/fonts.xml
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/SysSans-En-Regular.ttf
 fi
 
@@ -129,5 +133,34 @@ if [ -e /system/system_ext/etc/$oos12 ]; then
 	remove_ja $MODDIR/system/system_ext/etc/$oos12
 	add_ja $MODDIR/system/system_ext/etc/$oos12
 
+	sed -i 's@SysSans-En-Regular@Roboto-Regular@g' $MODDIR/system/system_ext/etc/$oos12
 	sed -i 's@NotoSerif-@Roboto-@g' $MODDIR/system/system_ext/etc/$oos12
+fi
+
+#Copy fonts_customization.xml for OnePlus OxygenOS 12+
+oos12c=fonts_customization.xml
+if [ -e /system/system_ext/etc/$oos12c ]; then
+    cp /system/system_ext/etc/$oos12c $MODDIR/system/system_ext/etc
+	sed -i 's@OplusSansText-25Th@Koruri-Light@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@OplusSansText-35ExLt@Koruri-Light@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@OplusSansText-45Lt@Koruri-Light@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@OplusSansText-55Rg@Koruri-Regular@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@OplusSansText-65Md@Koruri-Semibold@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@NHGMYHOplusHK-W4@Koruri-Regular@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@NHGMYHOplusPRC-W4@Koruri-Regular@g' $MODDIR/system/system_ext/etc/$oos12c
+	sed -i 's@OplusSansDisplay-45Lt@Koruri-Light@g' $MODDIR/system/system_ext/etc/$oos12c
+fi
+
+#Copy fonts_customization.xml for OnePlus OxygenOS 12+
+oos12p=fonts_customization.xml
+if [ -e /system/product/etc/$oos12p ]; then
+    cp /system/product/etc/$oos12p $MODDIR/system/product/etc
+	sed -i 's@OplusSansText-25Th@Koruri-Light@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@OplusSansText-35ExLt@Koruri-Light@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@OplusSansText-45Lt@Koruri-Light@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@OplusSansText-55Rg@Koruri-Regular@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@OplusSansText-65Md@Koruri-Semibold@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@NHGMYHOplusHK-W4@Koruri-Regular@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@NHGMYHOplusPRC-W4@Koruri-Regular@g' $MODDIR/system/product/etc/$oos12p
+	sed -i 's@OplusSansDisplay-45Lt@Koruri-Light@g' $MODDIR/system/product/etc/$oos12p
 fi
