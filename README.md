@@ -15,6 +15,10 @@ Tested on OnePlus 8T (Android 11) / Google Pixel 6 Pro (Android 12).
 
 ## Change log
 
+#### v23
+* Support ColorOS 12.1
+* Android 11 is not supported anymore. Please use v22 or lower.
+
 #### v22
 * Support MIUI 13
 
