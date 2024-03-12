@@ -88,7 +88,7 @@ fi
 
 #Goodbye, Xiaomi Font
 /system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- # MIUI Edit Start -->.*<!-- # MIUI Edit END -->@<family name="sans-serif">@' $MODDIR/system/etc/fonts.xml
-/system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- For WebView font -->.*<font weight="100" style="normal">Roboto@<family name="sans-serif">\n      <font weight="100" style="normal">Roboto@' $MODDIR/system/etc/fonts.xml
+#/system/bin/sed -i -z 's@<family name="sans-serif">\n    <!-- For WebView font -->.*<font weight="100" style="normal">Roboto@<family name="sans-serif">\n      <font weight="100" style="normal">Roboto@' $MODDIR/system/etc/fonts.xml
 if [ -e /system/fonts/MiSansVF.ttf ]; then
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/MiSansVF.ttf
 fi
