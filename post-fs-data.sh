@@ -70,6 +70,9 @@ if [ -e /system/fonts/MiSansVF_Overlay.ttf ]; then
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/MiSansVF_Overlay.ttf
 fi
 #For HyperOS CN 1.0
+if [ -e /system/fonts/MiSansTCVF.ttf ]; then
+	cp /system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/MiSansTCVF.ttf
+fi
 if [ -e /system/product/fonts/MiSansTCVF.ttf ]; then
 	cp /system/fonts/Roboto-Regular.ttf $MODDIR/system/product/fonts/MiSansTCVF.ttf
 fi
