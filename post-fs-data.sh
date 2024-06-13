@@ -77,6 +77,11 @@ if [ -e /system/product/fonts/MiSansTCVF.ttf ]; then
 	cp /system/fonts/Roboto-Regular.ttf $MODDIR/system/product/fonts/MiSansTCVF.ttf
 fi
 
+#Goodbye, OneUISans
+if [ -e /system/fonts/OneUISans-VF.ttf ]; then
+	sed -i 's@OneUISans-VF@Roboto-Regular@g' $MODDIR/system/etc/fonts.xml
+fi
+
 #Goodbye, vivo Font
 if [ -e /system/fonts/VivoFont.ttf ]; then
 	cp $MODDIR/system/fonts/Roboto-Regular.ttf $MODDIR/system/fonts/VivoFont.ttf
