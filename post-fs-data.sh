@@ -172,3 +172,5 @@ if [ -e /system/product/etc/$oos12p ]; then
 	sed -i 's@NHGMYHOplusPRC-W4@Koruri-Regular@g' $MODDIR/system/product/etc/$oos12p
 	sed -i 's@OplusSansDisplay-45Lt@Koruri-Light@g' $MODDIR/system/product/etc/$oos12p
 fi
+
+cp $MODDIR/system/etc/fonts.xml $MODDIR/system/etc/font_fallback.xml
